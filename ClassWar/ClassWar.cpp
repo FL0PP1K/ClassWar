@@ -69,3 +69,61 @@ public:
     void useWeapon() const override { cout << "кидає важкий каміннюк у ворогів!" << endl; }
     string getName() const override { return "Важкий валун"; }
 };
+
+class Character {
+protected:
+    string name;
+    string description;
+    string typeName;
+    Weapon* weapon;
+public:
+    Character(string n, string desc, string t)
+        : name(n), description(desc), typeName(t), weapon(nullptr) {
+    }
+    void display() const {
+        cout << "Герой: " << name << " (" << description << ")" << endl;
+    }
+    bool equipWeapon(Weapon* newWeapon) {
+        if (newWeapon->getRequiredOwner() == this->typeName) {
+            if (weapon != nullptr) {
+                delete weapon;
+            }
+            weapon = newWeapon;
+            cout << "Успішно озброєно: " << weapon->getName() << "!" << endl;
+            return true;
+        }
+        else {
+            cout << "Ця зброя не підходить цьому персонажу!" << endl;
+            return false;
+        }
+    }
+    void fight() const {
+        if (weapon) {
+            cout << name << " ";
+            weapon->useWeapon();
+        }
+        else {
+            cout << name << " б'ється голими руками (немає зброї)!" << endl;
+        }
+    }
+    virtual ~Character() {
+        if (weapon) delete weapon;
+    }
+};
+
+class Wizard : public Character {
+public:
+    Wizard() : Character("Чарівник", "Мудрий майстер магії", "Чарівник") {}
+};
+class Knight : public Character {
+public:
+    Knight() : Character("Лицар", "Відважний воїн у броні", "Лицар") {}
+};
+class Elf : public Character {
+public:
+    Elf() : Character("Ельф", "Влучний лісовий стрілець", "Ельф") {}
+};
+class Troll : public Character {
+public:
+    Troll() : Character("Троль", "Дика і страшна сила", "Троль") {}
+};
