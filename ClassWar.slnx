@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ClassWar/ClassWar.vcxproj" Id="66cbb196-7e9f-4334-9804-15dbf8e38fcb" />
+</Solution>
