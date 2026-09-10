@@ -18,3 +18,54 @@ public:
     }
     virtual ~Weapon() = default;
 };
+class WizardStaff : public Weapon {
+public:
+    WizardStaff() : Weapon("Чарівник") {}
+    void useWeapon() const override { cout << "випускає магічну вогняну кулю!" << endl; }
+    string getName() const override { return "Магічний посох"; }
+};
+class WizardGrimoire : public Weapon {
+public:
+    WizardGrimoire() : Weapon("Чарівник") {}
+    void useWeapon() const override { cout << "читає заборонене заклинання з прадавньої книги!" << endl; }
+    string getName() const override { return "Гримуар Таємниць"; }
+};
+
+class KnightSword : public Weapon {
+public:
+    KnightSword() : Weapon("Лицар") {}
+    void useWeapon() const override { cout << "здійснює потужний випад гострим королівським мечем!" << endl; }
+    string getName() const override { return "Королівський меч"; }
+};
+class KnightHammer : public Weapon {
+public:
+    KnightHammer() : Weapon("Лицар") {}
+    void useWeapon() const override { cout << "трощить ворога важким бойовим молотом!" << endl; }
+    string getName() const override { return "Важкий молот"; }
+};
+
+class ElfBow : public Weapon {
+public:
+    ElfBow() : Weapon("Ельф") {}
+    void useWeapon() const override { cout << "пускає влучну стрілу з гнучкого ельфійського лука!" << endl; }
+    string getName() const override { return "Ельфійський лук"; }
+};
+class ElfDaggers : public Weapon {
+public:
+    ElfDaggers() : Weapon("Ельф") {}
+    void useWeapon() const override { cout << "наносить серію блискавичних ударів парними кинджалами!" << endl; }
+    string getName() const override { return "Парні кинджали"; }
+};
+
+class TrollClub : public Weapon {
+public:
+    TrollClub() : Weapon("Троль") {}
+    void useWeapon() const override { cout << "б'є величезною грубою дубиною з розмаху!" << endl; }
+    string getName() const override { return "Величезна дубина"; }
+};
+class TrollBoulder : public Weapon {
+public:
+    TrollBoulder() : Weapon("Троль") {}
+    void useWeapon() const override { cout << "кидає важкий каміннюк у ворогів!" << endl; }
+    string getName() const override { return "Важкий валун"; }
+};
